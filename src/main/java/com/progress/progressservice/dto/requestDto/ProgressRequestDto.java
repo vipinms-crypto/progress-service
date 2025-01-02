@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class ProgressRequestDto {
-	private int progressId;
     private Integer progressCourseId;
     private Integer progressRemDuration;
     private String progressCourseStatus;

@@ -57,7 +57,7 @@ public class ProgressServiceImpl implements ProgressService {
         Optional<Progress> progressOptional = progressRepository.findById(id);
         if (progressOptional.isPresent()) {
             Progress progress = progressOptional.get();
-            progress = progressMapper.toEntity(progressRequestDto);
+            progressMapper.updateProgressFromDto(progressRequestDto, progress);
             Progress updatedProgress = progressRepository.save(progress);
             log.info("Exit from service method updateProgress with response ,"+ updatedProgress);
             return  progressMapper.toDto(updatedProgress);
