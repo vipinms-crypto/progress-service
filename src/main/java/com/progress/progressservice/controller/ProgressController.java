@@ -3,7 +3,6 @@ package com.progress.progressservice.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.progress.progressservice.dto.requestDto.ProgressRequestDto;
-import com.progress.progressservice.dto.responseDto.ProgressResponseDto;
+import com.progress.progressservice.dto.requestdto.ProgressRequestDto;
+import com.progress.progressservice.dto.responsedto.ProgressResponseDto;
 import com.progress.progressservice.service.ProgressService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,8 +27,11 @@ import lombok.extern.slf4j.Slf4j;
 @Tag(name = "Progress API", description = "API for managing progres")
 public class ProgressController {
 
-	@Autowired
 	private ProgressService progresService;
+	
+	ProgressController(ProgressService progresService){
+		this.progresService = progresService;
+	}
 
 	@GetMapping
 	@Operation(summary = "Fetch all progress", description = "Retrieve a list of all progres")

@@ -1,4 +1,4 @@
-package com.progress.progressservice.dto.responseDto;
+package com.progress.progressservice.dto.responsedto;
 
 import lombok.Data;
 
